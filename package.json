@@ -1,0 +1,28 @@
+{
+  "name": "monpremierserveunode",
+  "version": "1.0.0",
+  "description": "Je crée mon premier serveur Node. Le but est d'appre ndre àgérer les requêtes HTTP.",
+  "keywords": [
+    "serveur",
+    "node",
+    "javascript"
+  ],
+  "homepage": "https://github.com/chaidahoumadi6-cell/monpremierserveunode#readme",
+  "bugs": {
+    "url": "https://github.com/chaidahoumadi6-cell/monpremierserveunode/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaidahoumadi6-cell/monpremierserveunode.git"
+  },
+  "license": "ISC",
+  "author": "Houmadi Chahida",
+  "type": "commonjs",
+  "main": "serveur.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
