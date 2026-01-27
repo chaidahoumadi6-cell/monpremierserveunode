@@ -27,6 +27,19 @@ app.use((req, res, next) => {
     next();
 });
 
+// J'ajoute unmiddleware qui gére la sécurité d'accès
+app.use((req, res,next) =>{
+    // Je permet l'acces à mon API depuis n'importe quel origine
+    res.setHeader('Access-Control-Allow-Origin','*');
+
+    // J'autorise certaines en-têtes dans les requêtes reçues dans notre API. Les en-têtes autoriséees sont: Origin,X-Requested-With,Content,Accept,Content-type,Authorization 
+    res.setHeader('Access-Control-Allow-Headers','Origin,X-Requested-With, Content, Accept, Content-type, Authorization');
+
+    // J'autorise d'envoyer des requêtes avec les méthodes: Get, Post, Put, Delete, Patch, Options
+    res.setHeader('Access-Control-Allow-Methods','Get, Post, Put, Delete, Patch, Options');
+    next();
+})
+
 // Je dessine mes Routes avec Express
 app.use('/api/fruit',(req,res) => {
     console.log("Je passe dans a route /api/fruit");
@@ -39,6 +52,20 @@ app.use('/api/fruit',(req,res) => {
             prix: 3
 
 
+        },
+
+        {
+            id: 2,
+            nom: "banane",
+            description: "fruit",
+            prix:4
+
+        },
+        {
+            id:3,
+            nom: "carotte",
+            description: "légume",
+            prix: 5
         }
    ];
 
