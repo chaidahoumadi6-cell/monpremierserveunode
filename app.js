@@ -7,7 +7,7 @@ const express = require('express');
 const app = express();
 
 // Middleware exécuté pour chaque requête reçue par le serveur
-app.use((req,res, next) => {
+app.use((req, res, next) => {
 
     console.log("Je suis dans le serveur");
 
@@ -15,16 +15,35 @@ app.use((req,res, next) => {
     next();
 });
 
-app.use((req,res) => {
+/*app.use((req, res, next) => {
 
     // Envoie une réponse JSON au client avec un message
     res.json({message:"Vous êtes bien sur le serveur"});
+    next();
+});*/
 
+app.use((req, res, next) => {
+    console.log("Bonjour, je suis le serveur!");
+    next();
 });
 
-app.use((req, res) => {
-    res.console("Bonjour, je suis le serveur!");
+// Je dessine mes Routes avec Express
+app.use('/api/fruit',(req,res) => {
+    console.log("Je passe dans a route /api/fruit");
+   // mon fruit
+   const fruit = [
+        {
+            id: 1,
+            nom: "pomme",
+            description: "fruit saisonier",
+            prix: 3
 
+
+        }
+   ];
+
+   // En terem de réponse je renvoie le tableau de fruits
+   res.json(fruit);
 });
 
 /*

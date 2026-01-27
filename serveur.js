@@ -30,8 +30,16 @@ const date = new Date();
 
 // Je précise l'adresse et le port du serveur
 server.listen(numeroPort, () => {
-    console.log("Le serveur tourne sur le port" + numeroport);
+
+    // Affiche dans la console le port sur lequel le serveur est en cours d’exécution
+    console.log("Le serveur tourne sur le port" + numeroPort);
+
+    // Affiche la date au format lisible selon les paramètres régionaux de l’utilisateur
     console.log(date.toLocaleDateString());
+
+    // Affiche l’heure au format local selon les paramètres régionaux de l’utilisateur
     console.log( date.toLocaleTimeString());
+    
+    // Affiche le port utilisé par le serveur
     console.log("Le serveur tourne au port" + numeroPort);
 }); 
