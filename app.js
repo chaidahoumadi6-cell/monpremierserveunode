@@ -40,8 +40,10 @@ app.use((req, res,next) =>{
     next();
 })
 
-// Je dessine mes Routes avec Express
-app.use('/api/fruit',(req,res) => {
+/* Je dessine mes Routes avec Express avec la méthode GET
+Route complet localhos:3003
+*/
+app.get('/api/fruit',(req,res) => {
     console.log("Je passe dans a route /api/fruit");
    // mon fruit
    const fruit = [
@@ -70,8 +72,41 @@ app.use('/api/fruit',(req,res) => {
    ];
 
    // En terem de réponse je renvoie le tableau de fruits
-   res.json(fruit);
+    res.status(200).json(fruit);
 });
+
+
+app.post('/api/fruit', (req, res) => {
+    fruit = [
+         {
+            id: 1,
+            nom: "pomme",
+            description: "fruit saisonier",
+            prix: 3
+
+
+        },
+
+        {
+            id: 2,
+            nom: "banane",
+            description: "fruit",
+            prix:4
+
+        },
+        {
+            id:3,
+            nom: "carotte",
+            description: "légume",
+            prix: 5
+        }
+    ];
+    res.status(200).json(fruit);
+});
+
+app.put('/api/fruit', (req, res) => {
+    
+ 
 
 /*
 j'exporte l'application express sous forme de module
